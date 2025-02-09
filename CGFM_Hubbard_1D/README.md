@@ -1,10 +1,3 @@
-Co-authored-by: M. S. Figueira <marcosfigueira@id.uff.br>
-Co-authored-by: J. Silva-Valencia <jsilvav@unal.edu.co>
-
-
-
-
-
 # Anderson impurity model (AIM) solver based on the cumulant Green's functions method (CGFM)
 
 Solver for the Anderson impurity model (AIM) based on the cumulant Green's functions method (CGFM) (https://arxiv.org/abs/2409.16881). The method is based on the iterative construction and exact diagonalization of a finite chain containing a single correlated impurity site connected to a chain of uncorrelated sites. The eigenvectors and eigenvalues of the finite chain are used to obtain the atomic Green's functions for the chain using the Lehmann representation. Using the cumulant expansion, the atomic cumulants are obtained from the atomic Green's functions. The atomic cumulants are then used as approximations to the full cumulants to calculate the Green's functions for the infinite chain limit.
