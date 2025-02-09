@@ -41,29 +41,20 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 - LFIN:              defines the total number of sites in the chain (LFIN-1 conduction sites connected to 1 impurity);
 - IZI:               defines on which site the Green's functions will be calculated (IZI=LFIN means on the last site, which is the impurity site);
 - IDOWN:             defines if the down spin Green's functions should be calculated (IDOWN=0 means up spin only; IDOWN=1 means both spins);
-- PRINTTRANSITIONS:  defines if the atomic transitions should be printed on the output file (PRINTTRANSITIONS=0 means no; PRINTTRANSITIONS=1 means yes);
-- ALLBLOCKS:         defines if all blocks of the Hamiltonian matrix should be included in the calculations (ALLBLOCKS=0 only considers blocks where the number of electrons is equal to LFIN, LFIN-1 or LFIN+1; ALLBLOCKS=1 considers all blocks);
 - ACOPtI:            electron hopping term between sites of the chain;
 - D:                 bandwidth for the zero order density of states;
-- ACOPparam:         Anderson parameter DELTA (the Anderson parameter defines the energy scale);
-- ACOPhib:           hybridization V (the hybridization between the impurity site and the first conduction site);
-- BETAI:             BETA=1/T;
+- ACOPH:             external magnetic field;
+- ACt:               individual hopping terms between sites;
 - AMUI:              chemical potential MU;
-- ACOPUI:            starting electronic correlation U_i for the correlation loop;
-- ACOPUF:            ending electronic correlation U_f for the correlation loop;
-- ACOPnI:            local energy E_q of the conduction electrons;
-- EFI:               starting impurity gate energy;
-- EFF:               ending impurity gate energy;
-- MT:                number of points for the impurity gate energy loop;
-- LT:                number of points for the temperature loop;
-- TI:                starting temperature;
-- TF:                ending temperature;
+- BETAI:             BETA=1/T;
+- C1,C2,C3,C4:       parameters for the exact double occupation curve;
+- AMI:               starting chemical potential amu_i for the chemical potential loop;
+- AMF:               ending chemical potential amu_i for the chemical potential loop;
+- MT:                number of points for the chemical potential loop;
+- UI:                starting electronic correlation U_i for the correlation loop;
+- UF:                ending electronic correlation U_f for the correlation loop;
 - NT:                number of points for the electron correlation loop;
-- UI:                starting electron correlation;
-- UF:                ending electron correlation;
-- TKHaldane:         Kondo temperature T_K as calculated by Haldane;
-- A:                 starting frequency for the occupation numbers;
-- B:                 ending frequency for the occupation numbers;
+- ACOPnI:            local energy E_n of the electrons;
 - COMPP:             completeness number calculated from up spin Green's functions;
 - SVACP:             vacuum occupation number calculated from up spin Green's functions;
 - SFUP:              up spin occupation number calculated from up spin Green's functions;
@@ -74,12 +65,19 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 - SFUN:              up spin occupation number calculated from down spin Green's functions;
 - SFDN:              down spin occupation number calculated from down spin Green's functions;
 - SD2N:              double spin occupation number calculated from down spin Green's functions;
-- FRIED:             Friedel sum rule.
-  
+- D2:                exact double occupation curve;
+
+#### In subroutine OCUPT
+
+- A(1):              starting frequency for the occupation numbers;
+- B(1):             ending frequency for the occupation numbers;
+
 #### In subroutine OCUP
 
 - NT:                number of points for the calculation;
 - ETTA:              imaginary part of the complex frequency;
+- A:                 starting frequency for the occupation numbers;
+- B:                 ending frequency for the occupation numbers;
   
 #### In subroutine DENSI2
 
@@ -91,6 +89,11 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 ### Subroutines and functions (in order of appearance)
 
 - PROGRAM AMHUBBARD: main routine, defines the parameters of the model and calls other subroutines;
+- EGGAPBA:           calculates the ground-state energy and the gap of the density of states as functions of the correlation U for the Bethe ansatz solution;
+- f(x):              defines the function that represents the gap of the density of states as a function of the correlation U for the Bethe ansatz;
+- g(x):              defines the function that represents the ground-state energy as a function of the correlation U for the Bethe ansatz;
+- GROUND:            calculates the ground-state energy for the infinite chain;
+- OCUPT:             prepares the parameters to calculate the occupation numbers for the infinite chain;
 - OCUP:              calculates the occupation numbers for the infinite chain;
 - DENSI2:            calculates the density of states for the infinite chain;
 - GKONDO:            calculates the frequency dependent up spin and down spin Green's functions for the finite chain using the residues (numerators) from MEOCUP and MEOCDOWN, and afterwards calculates the up spin and down spin Green's functions for the infinite chain;
@@ -105,8 +108,10 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 - DEALLOC_IGSIS:     deallocates memory used to store charge and spin of the Hamiltonian blocks of the current iteration;
 - TCUPES1:           calculates the up spin creation operator of the current iteration;
 - TCDOWNES1:         calculates the down spin creation operator of the current iteration;
-- TCUPSIS:           calculates the up spin creation operator of the whole system;
-- TCDOWNSIS:         calculates the down spin creation operator of the whole system;
+- TCUPSISQ:          calculates the up spin creation operator of the first site;
+- TCUPSIS:           calculates the up spin creation operator of the last site;
+- TCDOWNSISQ:        calculates the down spin creation operator of the first site;
+- TCDOWNSIS:         calculates the down spin creation operator of the last site;
 - THSIS:             calculates the non-local elements of the Hamiltonian matrix, adds them to the local elements and diagonalizes the Hamiltonian matrix;
 - CONECTIONS:        defines which Hamiltonian blocks connect to each other and to creation operators ;
 - ESTRUCTURA:        defines the size, charge, and spin of Hamiltonian blocks;
@@ -116,7 +121,7 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 
 ### Output files
 
-- CGFM_Anderson_impurity_1D.out
+- CGFM_Hubbard_1D.out
 
     Main output file. The file contains information about the execution of the program, such as: input parameters; Hamiltonian blocks with their respective charge, spin, and eigenvalues; lowest eigenvalue; partition function; and others.
   
