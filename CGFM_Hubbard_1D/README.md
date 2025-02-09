@@ -42,6 +42,7 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 - IZI:               defines on which site the Green's functions will be calculated (IZI=LFIN means on the last site, which is the impurity site);
 - IDOWN:             defines if the down spin Green's functions should be calculated (IDOWN=0 means up spin only; IDOWN=1 means both spins);
 - ACOPtI:            electron hopping term between sites of the chain;
+- ACOPtR:            electron hopping term in the Green's functions for the lattice (set equal to the chain hopping);
 - D:                 bandwidth for the zero order density of states;
 - ACOPH:             external magnetic field;
 - ACt:               individual hopping terms between sites;
@@ -133,21 +134,17 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
   
     Output file for the occupation numbers. The name contains the date the program was run (in YYYYMMDD format) and the number of sites in the chain. The file is structured in the following way:
 
-  1. the temperature in column 1;
-  2. the impurity gate energy divided by the Anderson parameter in column 2;
-  3. the chemical potential in column 3;
-  4. the electron correlation in column 4;  
-  5. the Friedel sum rule in column 5;  
-  6. the total vacuum occupation number in column 6;  
-  7. the total up spin occupation number in column 7;  
-  8. the total down spin occupation number in column 8;  
-  9. the total double spin occupation number in column 9;  
-  10. the total completeness number in column 10;
-  11. the total occupation number in column 11.
+  1. the chemical potential in column 1;
+  2. the total vacuum occupation number in column 2;
+  3. the total up spin occupation number in column 3;
+  4. the total down spin occupation number in column 4;
+  5. the total double spin occupation number in column 5;
+  6. the total completeness number in column 6;
+  7. the total occupation number in column 7.
 
-- YYYYMMDD_adensity_LFIN=X.dat
+- YYYYMMDD_adensity_LFIN=X_ACOPU=Y.dat
 
-    Output file for the density of states. The name contains the date the program was run (in YYYYMMDD format) and the number of sites in the chain. The file is structured in the following way:
+    Output file for the density of states. The name contains the date the program was run (in YYYYMMDD format), the number of sites in the chain, and the electronic correlation. The file is structured in the following way:
 
   1. the frequency in column 1;
   2. the up spin density of states in column 2;
