@@ -896,7 +896,7 @@
           RFN(J)=-CC*DIMAG(VZGFN(J))
 
 
-!          IMPLEMENTAR CÁLCULO DAS FG DE ORDEM ZERO AQUI
+!          IMPLEMENTAR CÃLCULO DAS FG DE ORDEM ZERO AQUI
 !          RF0(J)=-CC*DIMAG(VZGF0(J))
 
 
@@ -1061,7 +1061,7 @@
 	COMMON/INDI/IZI 
  
         
-!       VARIÁVEIS REMOVIDAS DAS DECLARAÇÕES POIS ESTÃO NO MÓDULO:
+!       VARIÃVEIS REMOVIDAS DAS DECLARAÃÃES POIS ESTÃO NO MÃDULO:
 !       D,EMIN
 
         ACOPn0=ACOPn
@@ -1524,7 +1524,7 @@
 !CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
         SUBROUTINE EXATA
 
-!       ESTA ROTINA CALCULA OS RESÍDUOS DO DÍMERO DE FORMA ANALÍTICA
+!       ESTA ROTINA CALCULA OS RESÃDUOS DO DÃMERO DE FORMA ANALÃTICA
 
 	USE PRINCIPAL
 	USE AMODO
@@ -3112,7 +3112,7 @@
         REAL(KIND=KIND(1.0D0)), DIMENSION(:,:), ALLOCATABLE :: Z
 
 !	WRITE(44,*)'#############---->LAT=',LAT    
-	EMIN=0.D0		!Energía minima
+	EMIN=0.D0		!EnergÃ­a minima
     PRINT*,'LFIN=',LFIN
 	
 	DO 1000 J=1,NBL1HSIS
@@ -4195,7 +4195,7 @@
        R=E
        E=G
 !
-!   � Parabola es aceptable ?
+!   ¨ Parabola es aceptable ?
 !
 30     If(dabs(P).ge.dabs((0.5d0*Q*R))) go to 40
        If(P.ge.Q*(A-X)) go to 40
