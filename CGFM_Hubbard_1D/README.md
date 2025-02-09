@@ -67,9 +67,13 @@ Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed desc
 - SD2N:              double spin occupation number calculated from down spin Green's functions;
 - D2:                exact double occupation curve;
 
+#### In subroutine GROUND
+
+- N1:               number of points for the ground-state integration;
+
 #### In subroutine OCUPT
 
-- A(1):              starting frequency for the occupation numbers;
+- A(1):             starting frequency for the occupation numbers;
 - B(1):             ending frequency for the occupation numbers;
 
 #### In subroutine OCUP
