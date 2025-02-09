@@ -1,17 +1,15 @@
-# Anderson impurity model (AIM) solver based on the cumulant Green's functions method (CGFM)
+# 1D Hubbard model solver based on the cumulant Green's functions method (CGFM)
 
-Solver for the Anderson impurity model (AIM) based on the cumulant Green's functions method (CGFM) (https://arxiv.org/abs/2409.16881). The method is based on the iterative construction and exact diagonalization of a finite chain containing a single correlated impurity site connected to a chain of uncorrelated sites. The eigenvectors and eigenvalues of the finite chain are used to obtain the atomic Green's functions for the chain using the Lehmann representation. Using the cumulant expansion, the atomic cumulants are obtained from the atomic Green's functions. The atomic cumulants are then used as approximations to the full cumulants to calculate the Green's functions for the infinite chain limit.
+Solver for the 1D Hubbard model based on the cumulant Green's functions method (CGFM) (https://doi.org/10.1088/1361-648X/acc628). The method is based on the iterative construction and exact diagonalization of a finite chain containing N correlated sites. The eigenvectors and eigenvalues of the finite chain are used to obtain the atomic Green's functions for the chain using the Lehmann representation. Using the cumulant expansion, the atomic cumulants are obtained from the atomic Green's functions. The atomic cumulants are then used as approximations to the full cumulants to calculate the Green's functions for the infinite chain limit.
 
 ### Pre-requisites and how to install them
 
 - gfortran (https://fortran-lang.org/)
 
   `sudo apt-get install gfortran`
-  
 - LAPACK   (https://netlib.org/lapack/)
 
   `sudo apt-get install liblapack-dev`
-  
 - BLAS     (https://netlib.org/blas/)
 
   `sudo apt-get install libblas-dev `
@@ -20,13 +18,13 @@ Solver for the Anderson impurity model (AIM) based on the cumulant Green's funct
 
 - Compiling
 
-  `gfortran -std=legacy -mcmodel=medium -o CGFM_Anderson_impurity_1D.exe CGFM_Anderson_impurity_1D.f90 -llapack -lblas`
+  `gfortran -std=legacy -mcmodel=medium -o CGFM_Hubbard_1D.exe CGFM_Hubbard_1D.f90 -llapack -lblas`
 
   After compiling, the module files and the executable will be created.
   
 - Running
 
-  `nohup ./CGFM_Anderson_impurity_1D.exe > CGFM_Anderson_impurity_1D.out &`
+  `nohup ./CGFM_Hubbard_1D.exe > CGFM_Hubbard_1D.out &`
 
   Using this command, the code runs in the background, freeing up the terminal. To check the execution status, use `top`.
 
@@ -34,7 +32,7 @@ Solver for the Anderson impurity model (AIM) based on the cumulant Green's funct
 
 ### More details
 
-Check the "README.md" inside the "CGFM_Anderson_impurity_1D" directory for a detailed description of the code parameters, variables, subroutines, functions, and output files.
+Check the "README.md" inside the "CGFM_Hubbard_1D" directory for a detailed description of the code parameters, variables, subroutines, functions, and output files.
 
 ### Description of the important parameters and variables (in order of appearance)
 
