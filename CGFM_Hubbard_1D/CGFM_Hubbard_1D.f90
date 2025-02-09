@@ -900,12 +900,12 @@
 !          RF0(J)=-CC*DIMAG(VZGF0(J))
 
 
-!          IF(ABS(ACOPU-UINTERVALO).LT.10.D-8.AND.UINTERVALO.NE.0.D0) THEN
-!          filename=""//trim(adjustl(date))//"_adensity_LFIN="//&
-!          trim(adjustl(chainsize))//"_ACOPU="//trim(adjustl(correlation))//".dat"
-!          OPEN (12,FILE=filename)
-!          WRITE(12,121)VAW(J),RFP(J),RFN(J)!,RF0(J)
-!          END IF
+          IF(ABS(ACOPU-UINTERVALO).LT.10.D-8.AND.UINTERVALO.NE.0.D0) THEN
+          filename=""//trim(adjustl(date))//"_adensity_LFIN="//&
+          trim(adjustl(chainsize))//"_ACOPU="//trim(adjustl(correlation))//".dat"
+          OPEN (12,FILE=filename)
+          WRITE(12,121)VAW(J),RFP(J),RFN(J)!,RF0(J)
+          END IF
 
 121   FORMAT(30F12.6)
 
